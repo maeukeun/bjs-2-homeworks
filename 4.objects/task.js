@@ -10,7 +10,7 @@ Student.prototype.setSubject = function(subjectName) {
 }
 
 Student.prototype.addMarks = function(...marksToAdd) {
-	if (this.marks === undefined) {
+	if (!this.marks) {
 		console.log("Студент отчислен");
 		return;
 	}
@@ -18,7 +18,7 @@ Student.prototype.addMarks = function(...marksToAdd) {
 }
 
 Student.prototype.getAverage = function() {
-	if (this.marks === undefined || this.marks.length === 0) {
+	if (!this.marks || !this.marks.length) {
 		return 0;
 	}
 	const sum = this.marks.reduce((total, mark) => total + mark, 0);
